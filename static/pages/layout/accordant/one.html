@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>等高布局1(宽度固定)</title>
+	<style>
+		body,div{
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 960px;
+			margin: 0 auto;
+		}
+		
+		.rightWrap{
+			width: 100%;
+			float:left;
+			background-color: green;
+			overflow: hidden;
+		}
+		.contentWrap{
+			position: relative;
+			right:320px;
+			float: left;
+			width: 100%;
+			background-color: orange;
+		}
+		.leftWrap{
+			position: relative;
+			float: left;
+			width: 100%;
+			right: 420px;
+			background-color: lime;
+			
+		}
+		
+		.left{
+			position: relative;
+			float:left;
+			width:220px;
+			left: 740px;
+			overflow: hidden;
+			
+		}
+		.content{
+			position: relative;
+			float:left;
+			width: 420px;
+			left: 740px;
+			height: 300px;
+			overflow: hidden;
+		}
+		.right{
+			position: relative;
+			float: left;
+			width: 320px;
+			left: 740px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="rightWrap">
+			<div class="contentWrap">
+				<div class="leftWrap">
+					<div class="aside left">left</div>
+					<div class="content">content</div>
+					<div class="aside right">right<br/>right</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

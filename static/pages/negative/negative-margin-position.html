@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>negative margin position</title>
+	<style>
+		body,
+		div {
+			margin: 0;
+			padding: 0pt;
+		}
+		
+		.contain {
+			position: relative;
+			width: 500px;
+			margin: 200px auto 0;
+			text-align: center;
+		}
+		
+		.main {
+			/*display: inline-block;*/
+			width: 400px;
+		}
+		
+		.left,
+		.right {
+			position: absolute;
+			width: 400px;
+			height: 210px;
+			text-align: center;
+		}
+		
+		.left {
+			/*float: left;*/
+			background-color: orange;
+			margin-left:-10px;
+		}
+		
+		.right {
+			top:210px;
+			background-color: pink;
+			margin-top:-100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="contain">
+		<div class="main">
+			<div class="left">1</div>
+			<div class="right">2</div>
+		</div>
+	</div>
+</body>
+
+</html>

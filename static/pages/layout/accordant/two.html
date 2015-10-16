@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>等高布局(百分比宽度)</title>
+	<style>
+		body,div{
+			margin: 0;
+			padding: 0;
+		}
+		.container1,.container2,.container3,
+		.col1,.col2,.col3{
+			position: relative;
+			float:left;
+			width:100%;
+		}
+		
+		.container1{
+			background-color: orange;
+		}
+		.container2{
+			right:20%;
+			background-color: pink;	
+		}
+		.container3{
+			right: 60%;
+			background-color: skyblue;
+		}
+		.col1{
+			width:16%;
+			left:82%;
+		}
+		.col2{
+			width:56%;
+			left:86%;
+		}
+		.col3{
+			width:16%;
+			left:90%;
+			height: 300px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container1">
+		<div class="container2">
+			<div class="container3">
+				<div class="col1">col1</div>
+				<div class="col2">col2</div>
+				<div class="col3">col3</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
