@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用边框和定位模拟列等高</title>
+	<!--position最大的问题在于无法撑起父元素的高度-->
+	<!--因此会在main 设置了背景色,而slider的高度高于main 时,在成两列视觉上不一致,没有方法使main的高度延伸-->
+	<style>
+		.wrapper{
+			width: 960px;
+			margin:0 auto;
+		}
+		.slider{
+			position: absolute;
+			width: 220px;
+			background-color: #dfdfdf;
+			margin-left: 740px;
+		}
+		.main{
+			position: absolute;
+			width: 740px;
+			border-right: 220px solid #dfdfdf;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main">abc1</div>
+		<div class="slider">abc123</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框模仿等高列</title>
+	<!--使用float, 父元素通过overflow,可以包裹住float元素-->
+	<!--两列等高的原理,通过设置main的border颜色与right颜色一致,在main高度变化时,使right看起来一起增高-->
+	<!--当right增高至超过main高度时,会使container的高度同步增高,由于container的背景色与main的背景色一致,使main看起来同步增高-->
+	<style>
+		.container{
+			width:960px;
+			margin: 0 auto;
+			background-color: pink;
+			overflow: hidden;
+		}
+		.main{
+			float: left;
+			width:740px;
+			height: 400px;
+			background-color: pink;
+			border-right:220px solid #ccc;
+			margin-right: -220px;
+		}
+		.right{
+			float: left;
+			width: 220px;
+			height: 400px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="main"></div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>
