@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event-stop-propagation</title>
+	<style>
+		.propagation{
+			width:100px;
+			height: 100px;
+			border:2px solid #ccc;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="propagation">click here</div>
+	<script>
+		(function(){
+			var propagation = document.querySelector('.propagation');
+			propagation.addEventListener('click', function(){
+				console.log('click one handle function');
+			}, false);
+			
+			propagation.addEventListener('click', function(e){
+				console.log('click two stop propagation');
+				// e.stopPropagation();
+				// e.stopImmediatePropagation();
+			}, false);
+			
+			propagation.addEventListener('click', function(){
+				console.log('click three propagation');
+			}, false);
+			
+			document.documentElement.addEventListener('click', function(e){
+				// e.stopPropagation();
+				e.stopImmediatePropagation();
+				console.log('documentElement one click propagation');
+			}, false);
+			
+			document.documentElement.addEventListener('click', function(e){
+				
+				console.log('documentElement two click propagation');
+			}, false);
+			
+			document.addEventListener('click', function(){
+				console.log('click propagation')
+			}, false);
+		})();
+	</script>
+</body>
+</html>

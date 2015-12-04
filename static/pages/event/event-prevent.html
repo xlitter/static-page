@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event-prevent</title>
+</head>
+<body>
+	<textarea cols="30" rows="10"></textarea>
+	<script>
+		(function(){
+			'use strict';
+			var area = document.querySelector('textarea');
+			area.addEventListener('keypress', function(e){
+				 e.preventDefault();
+			}, false);
+			
+			document.documentElement.addEventListener('keypress', function(e){
+				console.log('documentElement', e.defaultPrevented);
+			}, false);
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>event flow</title>
+	<style>
+		.flow {
+			width: 200px;
+			height: 100px;
+			text-align: center;
+			border: 2px solid #ccc;
+			line-height: 100px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="flow">
+		event property
+	</div>
+
+	<script>
+		(function(){
+			var elements = [window, document,document.documentElement, document.body, document.querySelector('.flow')];
+			
+			elements.forEach(function(v, idx){
+					v.addEventListener('click', function(e){
+						console.log('event phase', e.eventPhase);
+						console.log('target', e.target);
+						console.log('currentTarget', e.currentTarget);
+						console.log('this', this, 'this === target', this === e.target, 'this === currentTarget', this === e.currentTarget);
+						console.log('---------------------------------------------');
+					}, false);
+			});
+		})();
+	</script>
+</body>
+
+</html>

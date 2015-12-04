@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event flow</title>
+	<style>
+		.flow{
+			width:100px;
+			height: 100px;
+			text-align: center;
+			border: 2px solid #ccc;
+			line-height: 100px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="flow">
+		event flow
+	</div>
+	
+	<script>
+		(function(){
+			var elements = [window, document,document.documentElement, document.body, document.querySelector('.flow')],
+			len = elements.length;
+			
+			elements.forEach(function(v, idx){
+				[ 1,0].forEach(function(v1){
+					v.addEventListener('click', function(e){
+						console.log('target', e.target, 'currentTarget', e.currentTarget, 'this', this, 'this === target', this === e.target)
+						console.log(!!v1 ? idx+1 : len*2 - idx, v.constructor.name , !!v1 ? 'capture': 'bubble', e.eventPhase);	
+					}, !!v1);
+				});
+			});
+		})();
+		
+	</script>
+</body>
+</html>

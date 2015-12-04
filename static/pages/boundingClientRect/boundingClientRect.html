@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>BoundingClientRect</title>
+	<style>
+		body,
+		div {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html,
+		body {
+			height: 4000px;
+		}
+		
+		#rect {
+			position: relative;
+			top: 520px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			padding:20px;
+			background-color: #ccc;
+			border: 10px solid #ddd;
+		}
+		
+		#result {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width:100%;
+			height:50px;
+			background-color: green;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="rect">
+
+	</div>
+	<div id="result">
+
+	</div>
+	<script>
+		(function(){
+			'use strict';
+			var divRect = document.getElementById('rect'),
+				divResult = document.getElementById('result');
+			function calcRect(){
+					var rect = divRect.getBoundingClientRect(),
+				  elements = 'top,left,right,bottom'.split(','),
+					result = [],item;	
+				for(var i = 0, len = elements.length; i<len;i++){
+					item = elements[i];
+					result.push(item, '=' ,rect[item],',');
+				}
+				divResult.innerText = result.join(''); 
+			}
+			
+			
+			window.onscroll = function(){
+				calcRect();
+			};
+		})();
+	</script>
+</body>
+
+</html>
